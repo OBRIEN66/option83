@@ -1,6 +1,7 @@
 # Option83
 
 		$ git clone https://github.com/OBRIEN66/option83.git
+		$ cd option83
 		$ npm install
 		$ node .
 
