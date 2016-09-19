@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Option83</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://ru.wargaming.net/clans/media/clans/emblems/cl_343/219343/emblem_24x24.png">
+    <style>li { list-style-type: none; left: 0;} </style>
+  </head>
+  <body>
+    
+    <ul id="messages"></ul>
+    
+    <nav class="navbar navbar-fixed-bottom navbar-light bg-faded">
+      <form>
+        <input style="width: 90vw;" id="m" autocomplete="off" placeholder="Message" /><button role="button" class="btn btn-outline-primary pull-xs-right ">Send</button>
+      </form>
+    </nav>
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      var name = prompt("Please enter your name", "John Smith");
+      var socket = io();
+      $('form').submit(function(){
+        socket.emit('chat message', $('#m').val());
+        socket.emit('username', name);
+        $('#m').val('');
+        return false;
+      });
+      socket.on('chat message', function(msg){
+        $('#messages').append($('<li>').text(msg));
+      });
+    </script>
+  </body>
+</html>
