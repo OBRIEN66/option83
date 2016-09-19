@@ -1,7 +1,7 @@
-# chat-example
+# Option83
 
-This is the source code for a very simple chat example used for 
-the [Getting Started](http://socket.io/get-started/chat/) guide 
-of the Socket.IO website.
+			$ git clone https://github.com/OBRIEN66/option83.git
+			$ npm install
+			$ node .
 
-Please refer to it to learn how to run this application.
+This is a simple chat app. Fork it and play around with it or just play around with it. Huge thanks to npm, socket.io, and all the other dependencies.
